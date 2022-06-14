@@ -34,44 +34,50 @@ class WalkthroughState extends State<WalkthroughPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: PageView.builder(
-          itemCount: WalkthoughModel.max,
-          scrollDirection: Axis.horizontal,
-          controller: controller,
-          itemBuilder: (context, position) {
-            return Transform(
-              transform: Matrix4.identity()..rotateX((current ?? 0) - position),
-              child: WalkthroughView(position),
-            );
-          },
-        ),
-        padding: const EdgeInsets.only(bottom: 260),
-      ),
-      bottomSheet: Wrap(
-        alignment: WrapAlignment.center,
+      backgroundColor: ThemeColors.bgColor,
+      body: Stack(
         children: [
-          SmoothPageIndicator(
+          PageView.builder(
+            itemCount: WalkthoughModel.max,
+            scrollDirection: Axis.horizontal,
             controller: controller,
-            count: 3,
-            effect: WormEffect(
-                dotWidth: 10,
-                dotHeight: 6,
-                dotColor: ThemeColors.bodyTextColor.withAlpha(20),
-                radius: 4,
-                activeDotColor: ThemeColors.activeColor),
+            itemBuilder: (context, position) {
+              return Transform(
+                transform: Matrix4.identity()
+                  ..rotateX((current ?? 0) - position),
+                child: Container(
+                  child: WalkthroughView(position),
+                  padding: const EdgeInsets.only(bottom: 200),
+                ),
+              );
+            },
           ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(20, 60, 20, 72),
-            height: 44,
-            width: MediaQuery.of(context).size.width,
-            child: PrimaryButton(
-                onPressed: () => {
-                      controller.nextPage(
-                          duration: const Duration(seconds: 1),
-                          curve: Curves.ease)
-                    },
-                text: "Get Started"),
+          Column(
+            children: [
+              Expanded(child: Container()),
+              SmoothPageIndicator(
+                controller: controller,
+                count: 3,
+                effect: WormEffect(
+                    dotWidth: 10,
+                    dotHeight: 6,
+                    dotColor: ThemeColors.bodyTextColor.withAlpha(40),
+                    radius: 4,
+                    activeDotColor: ThemeColors.activeColor),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(20, 60, 20, 60),
+                height: 44,
+                width: MediaQuery.of(context).size.width,
+                child: PrimaryButton(
+                    onPressed: () => {
+                          controller.nextPage(
+                              duration: const Duration(seconds: 1),
+                              curve: Curves.ease)
+                        },
+                    text: "Get Started"),
+              )
+            ],
           )
         ],
       ),
