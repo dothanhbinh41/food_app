@@ -16,7 +16,6 @@ class PrimaryButton extends ElevatedButton {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
-            minimumSize: const Size(100, Typographies.buttonHeight),
           ),
         );
 }
@@ -35,7 +34,6 @@ class SecondaryButton extends ElevatedButton {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
             ),
-            minimumSize: const Size(100, Typographies.buttonHeight),
             side: const BorderSide(
               width: 1,
               color: ThemeColors.activeColor,
