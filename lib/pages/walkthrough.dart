@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/pages/sign_in.dart';
+import 'package:food_app/utils/routes.dart';
 import 'package:food_app/widgets/buttons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -23,8 +25,9 @@ class WalkthroughState extends State<WalkthroughPage> {
     controller.addListener(() {
       setState(() {
         current = controller.page;
-        if ((current ?? 0) <= WalkthoughModel.max - 1) {
+        if ((current ?? 0) >= WalkthoughModel.max - 1) {
           //do something
+          Routes.pushPage(context, const SignInPage());
         }
       });
     });

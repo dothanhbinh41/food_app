@@ -65,6 +65,9 @@ class Typographies {
 
   static const bodyDartText =
       NormalTextStyle(color: ThemeColors.mainColor, fontSize: bodyFontsize);
+
+  static const bodyHintText =
+      NormalTextStyle(color: ThemeColors.bodyTextColor, fontSize: bodyFontsize);
   static const bodyLightText =
       NormalTextStyle(color: ThemeColors.bgColor, fontSize: bodyFontsize);
 
