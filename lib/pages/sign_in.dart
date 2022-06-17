@@ -91,6 +91,37 @@ class SignInState extends State<SignInPage> {
               height: 44,
               width: MediaQuery.of(context).size.width,
               child: PrimaryButton(onPressed: () => {}, text: "SignIn"),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 8, 20, 8),
+              height: 44,
+              alignment: Alignment.center,
+              child: const Text(
+                "Or",
+                style: Typographies.bodyDartText,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              height: 44,
+              width: MediaQuery.of(context).size.width,
+              child: SocialButton(
+                onPressed: () => {},
+                text: "Connect with Facebook",
+                icon: Image.asset("images/rec_facebook.png"),
+                color: ThemeColors.facebookColor,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              height: 44,
+              width: MediaQuery.of(context).size.width,
+              child: SocialButton(
+                onPressed: () => {},
+                text: "Connect with google",
+                icon: Image.asset("images/rec_google.png"),
+                color: ThemeColors.googleColor,
+              ),
             )
           ],
         ),

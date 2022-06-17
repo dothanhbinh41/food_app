@@ -10,7 +10,8 @@ class PrimaryButton extends ElevatedButton {
   PrimaryButton({required VoidCallback? onPressed, required String text})
       : super(
           onPressed: onPressed,
-          child: Text(text, style: Typographies.primaryButtonLightText),
+          child: Text(text.toUpperCase(),
+              style: Typographies.primaryButtonLightText),
           style: ElevatedButton.styleFrom(
             primary: ThemeColors.activeColor,
             shape: RoundedRectangleBorder(
@@ -25,7 +26,8 @@ class SecondaryButton extends ElevatedButton {
   SecondaryButton({required VoidCallback? onPressed, required String text})
       : super(
           onPressed: onPressed,
-          child: Text(text, style: Typographies.primaryButtonDartText),
+          child: Text(text.toUpperCase(),
+              style: Typographies.primaryButtonDartText),
           style: ElevatedButton.styleFrom(
             primary: ThemeColors.bgColor,
             onPrimary: ThemeColors.activeColor,
@@ -37,6 +39,48 @@ class SecondaryButton extends ElevatedButton {
             side: const BorderSide(
               width: 1,
               color: ThemeColors.activeColor,
+            ),
+          ),
+        );
+}
+
+class SocialButton extends ElevatedButton {
+  // ignore: prefer_const_constructors_in_immutables
+  SocialButton(
+      {required VoidCallback? onPressed,
+      required String text,
+      Color? color,
+      Widget? icon})
+      : super(
+          onPressed: onPressed,
+          child: Stack(
+            children: [
+              Positioned(
+                left: 0,
+                top: 7,
+                child: Container(
+                  height: 28,
+                  width: 28,
+                  alignment: Alignment.center,
+                  child: icon,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(4)),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  text.toUpperCase(),
+                  style: Typographies.primaryButtonLightText,
+                ),
+              ),
+            ],
+          ),
+          style: ElevatedButton.styleFrom(
+            primary: color,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
         );

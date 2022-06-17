@@ -8,4 +8,6 @@ class ThemeColors {
   static const Color accentColor = Color(0xffEF9920);
   static const Color bgColor = Color(0xffFFFFFF);
   static const Color strokeColor = Color(0xffF3F2F2);
+  static const Color facebookColor = Color(0xff395998);
+  static const Color googleColor = Color(0xff4285F4);
 }
