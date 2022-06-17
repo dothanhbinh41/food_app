@@ -16,7 +16,6 @@ class AppBarWidget extends AppBar {
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
             foregroundColor: ThemeColors.mainColor,
-            scrolledUnderElevation: 0,
             title: Text(title),
             toolbarHeight: 44,
             leading: showBackButton
